@@ -101,22 +101,22 @@ for casilla in dic_board:
 cv2.imshow("Tablero", img)
 
 
-# row1
-cv2.line(img, (0, 50), (300, 50), (0, 0, 250), 4)
-# row2
-cv2.line(img, (0, 150), (300, 150), (0, 0, 250), 4)
-# row3
-cv2.line(img, (0, 250), (300, 250), (0, 0, 250), 4)
-# col1
-cv2.line(img, (50, 0), (50, 300), (0, 0, 250), 4)
-# col2
-cv2.line(img, (150, 0), (150, 300), (0, 0, 250), 4)
-# col3
-cv2.line(img, (2500, 0), (250, 300), (0, 0, 250), 4)
-# diag1
-cv2.line(img, (0, 0), (300, 300), (0, 0, 250), 4)
-# diag2
-cv2.line(img, (0, 300), (300, 0), (0, 0, 250), 4)
+# # row1
+# cv2.line(img, (0, 50), (300, 50), (0, 0, 250), 4)
+# # row2
+# cv2.line(img, (0, 150), (300, 150), (0, 0, 250), 4)
+# # row3
+# cv2.line(img, (0, 250), (300, 250), (0, 0, 250), 4)
+# # col1
+# cv2.line(img, (50, 0), (50, 300), (0, 0, 250), 4)
+# # col2
+# cv2.line(img, (150, 0), (150, 300), (0, 0, 250), 4)
+# # col3
+# cv2.line(img, (2500, 0), (250, 300), (0, 0, 250), 4)
+# # diag1
+# cv2.line(img, (0, 0), (300, 300), (0, 0, 250), 4)
+# # diag2
+# cv2.line(img, (0, 300), (300, 0), (0, 0, 250), 4)
 
 
 line_coord = [
@@ -125,12 +125,20 @@ line_coord = [
     {"name": "row3", "coord": [(0, 250), (300, 250)]},
     {"name": "col1", "coord": [(50, 0), (50, 300)]},
     {"name": "col2", "coord": [(150, 0), (150, 300)]},
-    {"name": "col3", "coord": [(2500, 0), (250, 300)]},
+    {"name": "col3", "coord": [(250, 0), (250, 300)]},
     {"name": "diag1", "coord": [(0, 0), (300, 300)]},
     {"name": "diag2", "coord": [(0, 300), (300, 0)]},
 ]
 
-cv2.line(img, (0, 300), (300, 0), (0, 0, 250), 4)
+# print(line_coord.index({"name": "row1"}))
+
+test="col1"
+for position_check in line_coord:
+        if position_check["name"] == test:
+            print("dibuje: %s en %s" % (position_check["name"], position_check["coord"]))
+            line_data = position_check["coord"]
+
+cv2.line(img, line_data[0], line_data[1], (0, 0, 250), 4)
 
 cv2.imshow("Tablero", img)
 

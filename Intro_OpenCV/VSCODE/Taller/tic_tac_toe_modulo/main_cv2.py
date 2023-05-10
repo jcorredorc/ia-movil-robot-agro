@@ -17,27 +17,30 @@ tablero = triqui.CreateBoard()
 triqui.DisplayBoard(tablero)
 triqui.DisplayBoardCv2(tablero)
 
-while True:
-    tablero = triqui.EnterMove(tablero)
-    triqui.DisplayBoard(tablero)
-    if triqui.VictoryFor(tablero, "O") == "O":
-        print("==============")
-        print(" Gana humano")
-        print("==============")
-        break
-    tablero = triqui.DrawMove(tablero)
-    triqui.DisplayBoard(tablero)
-    if triqui.VictoryFor(tablero, "X") == "X":
-        print("===============")
-        print(" Gana máquina")
-        print("===============")
-        break
-    # si es empate sale del ciclo
-    if triqui.VictoryFor(tablero, "O") == "tie":
-        print("===============")
-        print("   Empate !!!")
-        print("===============")
-        break
-    # else:
-    #     print(triqui.VictoryFor(tablero, "O"))
-# print("FIN")
+# while True:
+tablero = triqui.EnterMove(tablero)
+triqui.DisplayBoard(tablero)
+triqui.DisplayBoardCv2(tablero)
+#     if triqui.VictoryForCv2(tablero, "O")[0] == "O":
+#         print("==============")
+#         print(" Gana humano")
+#         print("==============")
+#         triqui.DrawVictoryCv2(tablero, triqui.VictoryForCv2(tablero, "O")[1],triqui.VictoryForCv2(tablero, "O")[0] == "O")
+#         break
+#     tablero = triqui.DrawMove(tablero)
+#     triqui.DisplayBoard(tablero)
+#     # triqui.DestroyBoardCv2(tablero)
+#     if triqui.VictoryFor(tablero, "X") == "X":
+#         print("===============")
+#         print(" Gana máquina")
+#         print("===============")
+#         break
+#     # si es empate sale del ciclo
+#     if triqui.VictoryFor(tablero, "O") == "tie":
+#         print("===============")
+#         print("   Empate !!!")
+#         print("===============")
+#         break
+#     # else:
+#     #     print(triqui.VictoryFor(tablero, "O"))
+# # print("FIN")
