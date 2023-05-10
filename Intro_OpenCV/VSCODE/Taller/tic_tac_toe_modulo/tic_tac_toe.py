@@ -62,6 +62,9 @@ def DisplayBoard(board):
 
 # display board OpenCV
 def DisplayBoardCv2(board):
+    img[:, :, 0] = 197  # B
+    img[:, :, 1] = 220  # G
+    img[:, :, 2] = 69  # R
     # Características del texto
     # texto = "X"
     # ubicacion = (31, 70)
@@ -244,7 +247,7 @@ def DrawVictoryCv2(board, win_cell, sign):
     ]
 
     # print(line_coord.index({"name": "row1"}))
-
+    line_data=[(0,0),(0,0)]
     for position_check in line_coord:
             if position_check["name"] == win_cell:
                 print("dibuje: %s en %s" % (position_check["name"], position_check["coord"]))
