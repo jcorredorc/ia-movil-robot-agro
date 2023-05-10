@@ -23,6 +23,7 @@ img = np.zeros((300, 300, 3), np.uint8)  # filas,columnas - Alto,ancho
 img[:, :, 0] = 197  # B
 img[:, :, 1] = 220  # G
 img[:, :, 2] = 69  # R
+cv2.startWindowThread()
 
 
 # display board terminal
@@ -130,8 +131,8 @@ def DisplayBoardCv2(board):
 
     if k:  # Si se pulsa cualquier tecla
         # Destruir todas las ventanas creadas
-        cv2.destroyAllWindows()
-
+        # cv2.destroyAllWindows()
+        print("key press :P")
 
 
 def DestroyBoardCv2():
@@ -217,7 +218,6 @@ def VictoryForCv2(board, sign):
             print("Gana: %s con %s" % (sign, position_check["name"]))
             win_cell = position_check["name"]
 
-
     if win_cell:
         return [sign, win_cell]
     else:
@@ -236,22 +236,24 @@ def DrawVictoryCv2(board, win_cell, sign):
     escribir empate
     """
     line_coord = [
-    {"name": "row1", "coord": [(0, 50), (300, 50)]},
-    {"name": "row2", "coord": [(0, 150), (300, 150)]},
-    {"name": "row3", "coord": [(0, 250), (300, 250)]},
-    {"name": "col1", "coord": [(50, 0), (50, 300)]},
-    {"name": "col2", "coord": [(150, 0), (150, 300)]},
-    {"name": "col3", "coord": [(250, 0), (250, 300)]},
-    {"name": "diag1", "coord": [(0, 0), (300, 300)]},
-    {"name": "diag2", "coord": [(0, 300), (300, 0)]},
+        {"name": "row1", "coord": [(0, 50), (300, 50)]},
+        {"name": "row2", "coord": [(0, 150), (300, 150)]},
+        {"name": "row3", "coord": [(0, 250), (300, 250)]},
+        {"name": "col1", "coord": [(50, 0), (50, 300)]},
+        {"name": "col2", "coord": [(150, 0), (150, 300)]},
+        {"name": "col3", "coord": [(250, 0), (250, 300)]},
+        {"name": "diag1", "coord": [(0, 0), (300, 300)]},
+        {"name": "diag2", "coord": [(0, 300), (300, 0)]},
     ]
 
     # print(line_coord.index({"name": "row1"}))
-    line_data=[(0,0),(0,0)]
+    line_data = [(0, 0), (0, 0)]
     for position_check in line_coord:
-            if position_check["name"] == win_cell:
-                print("dibuje: %s en %s" % (position_check["name"], position_check["coord"]))
-                line_data = position_check["coord"]
+        if position_check["name"] == win_cell:
+            print(
+                "dibuje: %s en %s" % (position_check["name"], position_check["coord"])
+            )
+            line_data = position_check["coord"]
 
     cv2.line(img, line_data[0], line_data[1], (0, 0, 250), 4)
     cv2.imshow("Tablero", img)
@@ -260,6 +262,7 @@ def DrawVictoryCv2(board, win_cell, sign):
     if k:  # Si se pulsa cualquier tecla
         # Destruir todas las ventanas creadas
         cv2.destroyAllWindows()
+
 
 def VictoryFor(board, sign):
     #
@@ -388,6 +391,5 @@ if __name__ == "__main__":
     tablero[2][2] = "X"
     DisplayBoard(tablero)
     DisplayBoardCv2(tablero)
-    [sign, msg]=VictoryForCv2(tablero, "X")
-    DrawVictoryCv2(tablero,msg,sign)
-    
+    [sign, msg] = VictoryForCv2(tablero, "X")
+    DrawVictoryCv2(tablero, msg, sign)

@@ -20,25 +20,33 @@ while True:
     tablero = triqui.EnterMove(tablero)
     triqui.DisplayBoard(tablero)
     triqui.DisplayBoardCv2(tablero)
-    print("cell: ",triqui.VictoryForCv2(tablero, "O")[1])
+    print("cell: ", triqui.VictoryForCv2(tablero, "O")[1])
     if triqui.VictoryForCv2(tablero, "O")[1] not in [None, "tie"]:
         print("==============")
         print(" Gana humano")
         print("==============")
-        triqui.DrawVictoryCv2(tablero, triqui.VictoryForCv2(tablero, "O")[1],triqui.VictoryForCv2(tablero, "O")[0])
+        triqui.DrawVictoryCv2(
+            tablero,
+            triqui.VictoryForCv2(tablero, "O")[1],
+            triqui.VictoryForCv2(tablero, "O")[0],
+        )
         break
     tablero = triqui.DrawMove(tablero)
     triqui.DisplayBoard(tablero)
     triqui.DisplayBoardCv2(tablero)
     # triqui.DestroyBoardCv2(tablero)
     # if triqui.VictoryFor(tablero, "X") == "X":
-    if triqui.VictoryForCv2(tablero, "X")[1] not in [None, "tie"]:   
+    if triqui.VictoryForCv2(tablero, "X")[1] not in [None, "tie"]:
         print("===============")
         print(" Gana máquina")
         print("===============")
-        triqui.DrawVictoryCv2(tablero, triqui.VictoryForCv2(tablero, "X")[1],triqui.VictoryForCv2(tablero, "X")[0])
+        triqui.DrawVictoryCv2(
+            tablero,
+            triqui.VictoryForCv2(tablero, "X")[1],
+            triqui.VictoryForCv2(tablero, "X")[0],
+        )
         break
-#     # si es empate sale del ciclo
+    #     # si es empate sale del ciclo
     # if triqui.VictoryFor(tablero, "O") == "tie":
     if triqui.VictoryForCv2(tablero, "X")[1] == "tie":
         print("===============")
@@ -46,6 +54,6 @@ while True:
         print("===============")
         break
     else:
-    #     siga jugando
+        #     siga jugando
         print("siga jugando")
 # print("FIN")
