@@ -99,6 +99,29 @@ for casilla in dic_board:
 
 
 cv2.imshow("Tablero", img)
+k = cv2.waitKey(0)
+
+if k == 27:  # Si se pulsa cualquier tecla
+    # Destruir todas las ventanas creadas
+    cv2.destroyAllWindows()
+
+
+# Características del texto
+texto = "EMPATE "
+ubicacion = (40, 200)
+font = cv2.FONT_HERSHEY_DUPLEX
+tamañoLetra = 2
+colorLetra = (0, 0, 255)
+grosorLetra = 3
+
+# Escribir texto
+cv2.putText(img, texto, ubicacion, font, tamañoLetra, colorLetra, grosorLetra)
+cv2.imshow("Tablero", img)
+k = cv2.waitKey(0)
+
+if k == 27:  # Si se pulsa cualquier tecla
+    # Destruir todas las ventanas creadas
+    cv2.destroyAllWindows()
 
 
 # # row1
@@ -132,11 +155,11 @@ line_coord = [
 
 # print(line_coord.index({"name": "row1"}))
 
-test="col1"
+test = "col1"
 for position_check in line_coord:
-        if position_check["name"] == test:
-            print("dibuje: %s en %s" % (position_check["name"], position_check["coord"]))
-            line_data = position_check["coord"]
+    if position_check["name"] == test:
+        print("dibuje: %s en %s" % (position_check["name"], position_check["coord"]))
+        line_data = position_check["coord"]
 
 cv2.line(img, line_data[0], line_data[1], (0, 0, 250), 4)
 

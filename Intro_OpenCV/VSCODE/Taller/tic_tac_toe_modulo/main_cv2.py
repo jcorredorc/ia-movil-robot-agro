@@ -34,7 +34,6 @@ while True:
     tablero = triqui.DrawMove(tablero)
     triqui.DisplayBoard(tablero)
     triqui.DisplayBoardCv2(tablero)
-    # triqui.DestroyBoardCv2(tablero)
     # if triqui.VictoryFor(tablero, "X") == "X":
     if triqui.VictoryForCv2(tablero, "X")[1] not in [None, "tie"]:
         print("===============")
@@ -52,8 +51,14 @@ while True:
         print("===============")
         print("   Empate !!!")
         print("===============")
+        triqui.DrawVictoryCv2(
+            tablero,
+            triqui.VictoryForCv2(tablero, "X")[1],
+            triqui.VictoryForCv2(tablero, "X")[0],
+        )
         break
     else:
         #     siga jugando
         print("siga jugando")
+# triqui.DestroyBoardCv2(tablero)
 # print("FIN")

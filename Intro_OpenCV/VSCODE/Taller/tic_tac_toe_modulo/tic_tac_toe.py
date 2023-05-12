@@ -23,7 +23,7 @@ img = np.zeros((300, 300, 3), np.uint8)  # filas,columnas - Alto,ancho
 img[:, :, 0] = 197  # B
 img[:, :, 1] = 220  # G
 img[:, :, 2] = 69  # R
-cv2.startWindowThread()
+# cv2.startWindowThread()
 
 
 # display board terminal
@@ -123,24 +123,26 @@ def DisplayBoardCv2(board):
             casilla.get("coord"),  # ubicacion
             font,
             tamañoLetra,
-            colorLetra,
+            (0, 0, 255) if casilla.get("texto") == "O" else colorLetra,
             grosorLetra,
         )
     cv2.imshow("Tablero", img)
     k = cv2.waitKey(0)
 
-    if k:  # Si se pulsa cualquier tecla
+    if k == 27:  # Si se pulsa cualquier tecla
         # Destruir todas las ventanas creadas
-        # cv2.destroyAllWindows()
+        cv2.destroyAllWindows()
         print("key press :P")
+    else:
+        print("siga ...")
 
 
 def DestroyBoardCv2():
-    k = cv2.waitKey(0)
+    # k = cv2.waitKey(0)
 
-    if k:  # Si se pulsa cualquier tecla
-        # Destruir todas las ventanas creadas
-        cv2.destroyAllWindows()
+    # if k:  # Si se pulsa cualquier tecla
+    # Destruir todas las ventanas creadas
+    cv2.destroyAllWindows()
 
 
 def EnterMove(board):
@@ -152,7 +154,10 @@ def EnterMove(board):
     user_move = 0
 
     while user_move not in allowed_fields:
-        user_move = int(input("ingresa tu movimiento: "))
+        try:
+            user_move = int(input("ingresa tu movimiento: "))
+        except:
+            print("no es un número .. :(")
     field_test = board[board_index.get(str(user_move))[0]][
         board_index.get(str(user_move))[1]
     ]
@@ -164,6 +169,33 @@ def EnterMove(board):
     else:
         print("U: movimiento no permitido, ya ha sido jugado")
         EnterMove(board)
+    return board
+
+
+def EnterMoveCv2(board, sign):
+    #
+    # la función acepta el estado actual del tablero y el simbolo O o X
+    # pregunta al usuario acerca de su movimiento,
+    # verifica la entrada y actualiza el tablero acorde a la decisión del usuario
+    #
+    user_move = 0
+    usr_msg = "Ingresa tu movimiento " + sign + ": "
+    while user_move not in allowed_fields:
+        try:
+            user_move = int(input(usr_msg))
+        except:
+            print("no es un número .. :(, ingresa un número")
+    field_test = board[board_index.get(str(user_move))[0]][
+        board_index.get(str(user_move))[1]
+    ]
+    if field_test not in ["O", "X"]:
+        board[board_index.get(str(user_move))[0]][
+            board_index.get(str(user_move))[1]
+        ] = sign
+        # DisplayBoard(board)
+    else:
+        print("U: movimiento no permitido, ya ha sido jugado")
+        EnterMoveCv2(board, sign)
     return board
 
 
@@ -248,18 +280,30 @@ def DrawVictoryCv2(board, win_cell, sign):
 
     # print(line_coord.index({"name": "row1"}))
     line_data = [(0, 0), (0, 0)]
-    for position_check in line_coord:
-        if position_check["name"] == win_cell:
-            print(
-                "dibuje: %s en %s" % (position_check["name"], position_check["coord"])
-            )
-            line_data = position_check["coord"]
+    if win_cell not in [None, "tie"]:
+        for position_check in line_coord:
+            if position_check["name"] == win_cell:
+                print(
+                    "dibuje: %s en %s"
+                    % (position_check["name"], position_check["coord"])
+                )
+                line_data = position_check["coord"]
 
-    cv2.line(img, line_data[0], line_data[1], (0, 0, 250), 4)
+        cv2.line(img, line_data[0], line_data[1], (249, 71, 4), 4)
+    elif win_cell == "tie":
+        texto = "EMPATE "
+        ubicacion = (40, 200)
+        font = cv2.FONT_HERSHEY_DUPLEX
+        tamañoLetra = 2
+        colorLetra = (0, 0, 255)
+        grosorLetra = 3
+        # Escribir texto
+        cv2.putText(img, texto, ubicacion, font, tamañoLetra, colorLetra, grosorLetra)
+
     cv2.imshow("Tablero", img)
     k = cv2.waitKey(0)
 
-    if k:  # Si se pulsa cualquier tecla
+    if k == 27:  # Si se pulsa cualquier tecla
         # Destruir todas las ventanas creadas
         cv2.destroyAllWindows()
 
@@ -341,7 +385,7 @@ def CreateBoard():
             item += 1
             board[r][c] = item
     # juega la maquina al inicio
-    board[1][1] = "X"
+    # board[1][1] = "X"
     return board
 
 
