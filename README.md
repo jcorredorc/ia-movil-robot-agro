@@ -15,11 +15,15 @@ El curso se conforma de 3 niveles
     
     2.2. [Operaciones básicas imágenes](Intro_OpenCV/VSCODE/)
     
+    2.3. [Tratamiento de imágenes](Intro_OpenCV/tratamiento_imagenes/)
+    
+    2.X. Aplicaciones
     [Teachable Machine](https://teachablemachine.withgoogle.com/) Train models
         
     [Landing Lens](https://landing.ai/) labeling and trainning
 
     [Mechanical Turk](https://www.mturk.com/) labeling human work-force
+
         
 
 
