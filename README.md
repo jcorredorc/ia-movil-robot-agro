@@ -21,9 +21,9 @@ El curso se conforma de 3 niveles
     
     2.3.2. [Detector de movimiento](Intro_OpenCV/tratamiento_imagenes/detector_movimiento/)
 
-    2.3.2. [Detector de objetos](Intro_OpenCV/tratamiento_imagenes/detector_objetos/)
+    2.3.3. [Detector de objetos](Intro_OpenCV/tratamiento_imagenes/detector_objetos/)
 
-    2.X. Aplicaciones
+    2.4. Aplicaciones
     
     [Teachable Machine](https://teachablemachine.withgoogle.com/) Train models
         
