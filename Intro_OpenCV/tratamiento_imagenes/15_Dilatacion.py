@@ -5,7 +5,7 @@ dir = "Intro_OpenCV/tratamiento_imagenes/"
 img = cv2.imread(dir + "11.png", 0)
 kernel = np.ones((5, 5), np.uint8)
 
-# DILATACION
+# DILATACION -aumentar blanco
 # si al menos un elemnto adyacente es uno, lo coloco en 1
 dilatacion1 = cv2.dilate(img, kernel, iterations=1)
 dilatacion2 = cv2.dilate(img, kernel, iterations=3)

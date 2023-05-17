@@ -27,8 +27,8 @@ gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 # plt.show()
 
 
-# Usamos la umbralización binaria manual con un umbral de 200.  Usar histograma para ver el umbral.
-# Umbral seleccionado: 200
+# Usamos la umbralización binaria manual con un umbral.  Usar histograma para ver el umbral.
+# Umbral seleccionado: 230
 # También puede utilizar el umbral óptimo OTSU
 retVal, binary = cv2.threshold(gray, 230, 255, cv2.THRESH_BINARY)
 cv2.imshow("Imagen binaria", binary)
@@ -68,7 +68,6 @@ print("Cantidad de contornos: ", len(contornos[0]))
 
 
 # Características del texto
-# texto = "SENA"
 ubicacion = (200, 200)
 font = cv2.FONT_HERSHEY_SIMPLEX
 tamañoLetra = 2
