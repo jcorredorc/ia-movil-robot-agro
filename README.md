@@ -1,5 +1,5 @@
 # ia-movil-robot-agro
-Notas curso SENA "INTELIGENCIA ARTIFICIAL APLICADA A LA ROBÓTICA MÓVIL PARA SOLUCIONES EN EL AGRO: Nivel Básico"
+Notas curso SENA "INTELIGENCIA ARTIFICIAL APLICADA A LA ROBÓTICA MÓVIL PARA SOLUCIONES EN EL AGRO"
 
 
 El curso se conforma de 3 niveles
@@ -16,6 +16,12 @@ El curso se conforma de 3 niveles
     2.2. [Operaciones básicas imágenes](Intro_OpenCV/VSCODE/)
     
     2.3. [Tratamiento de imágenes](Intro_OpenCV/tratamiento_imagenes/)
+
+    2.3.1. [Seguimiento de color](Intro_OpenCV/tratamiento_imagenes/seguimiento_color/)
+    
+    2.3.2. [Detector de movimiento](Intro_OpenCV/tratamiento_imagenes/detector_movimiento/)
+
+    2.3.2. [Detector de objetos](Intro_OpenCV/tratamiento_imagenes/detector_objetos/)
 
     2.X. Aplicaciones
     
