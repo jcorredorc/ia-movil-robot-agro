@@ -161,7 +161,6 @@ include_directories(
 catkin_install_python(PROGRAMS
   scripts/publicador.py
   scripts/suscriptor.py
-  scripts/listener.py
   scripts/pub_turtle.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

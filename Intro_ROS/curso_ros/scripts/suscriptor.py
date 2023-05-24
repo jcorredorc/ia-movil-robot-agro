@@ -15,5 +15,4 @@ def suscriptor():
     rospy.spin()
 
 if __name__ == '__main__':
-    print("Hello")
     suscriptor()
