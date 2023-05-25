@@ -162,6 +162,7 @@ catkin_install_python(PROGRAMS
   scripts/publicador.py
   scripts/suscriptor.py
   scripts/pub_turtle.py
+  scripts/figuras_turtle.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
