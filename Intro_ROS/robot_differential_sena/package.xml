@@ -2,7 +2,7 @@
   <name>robot_differential_sena</name>
   <version>1.0.0</version>
   <description>
-    <p>URDF Description package for robot_differential_sena_2</p>
+    <p>URDF Description package for robot_differential_sena</p>
     <p>This package contains configuration data, 3D models and launch files
 for robot_differential_sena robot</p>
   </description>
